@@ -1,6 +1,6 @@
 package teoria.ejemplo3;
 
-public class FiguraRegular {
+public class FiguraRegular implements Figura{
     private final TipoFigura tipoFigura;
     private double longitudLado;
 
@@ -20,9 +20,11 @@ public class FiguraRegular {
     public void setLongitudLado(double longitudLado) {
         this.longitudLado = longitudLado;
     }
+    @Override
     public double calcularPerimetro () {
         return tipoFigura.getNumeroLados() * longitudLado;
     }
+    @Override
     public double calcularArea() {
         switch (tipoFigura) {
             case TRIANGULO_EQUILATERO -> {
@@ -44,7 +46,7 @@ public class FiguraRegular {
     }
     @Override
     public String toString() {
-        return String.format("%s,%d,%.2f,%.2f", tipoFigura, tipoFigura.getNumeroLados(),
+        return String.format("%s;%d;%.2f;%.2f", tipoFigura, tipoFigura.getNumeroLados(),
                 calcularPerimetro(), calcularArea());
     }
 }
